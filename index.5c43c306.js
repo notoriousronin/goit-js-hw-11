@@ -1,0 +1,2 @@
+!function(){var o={id:1,body:"CRUD is really awesome"},n={method:"PATCH",body:JSON.stringify(o),headers:{"Content-Type":"application/json; charset=UTF-8"}};fetch("https://jsonplaceholder.typicode.com/posts/".concat(o.id),n).then((function(o){return o.json()})).then((function(o){return console.log(o)})).catch((function(o){return console.log("ERROR"+o)}))}();
+//# sourceMappingURL=index.5c43c306.js.map
