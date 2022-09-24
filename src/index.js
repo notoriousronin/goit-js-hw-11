@@ -75,35 +75,44 @@ async function subHandle(event) {
 }
 
 function render(image) {
-  const newGallery = image.map(
-    ({
-      webformatURL,
-      largeImageURL,
-      tags,
-      likes,
-      views,
-      comments,
-      downloads,
-    }) => {
-      return `<div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-  <div class="info">
+  const newGallery = image
+    .map(
+      ({
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => {
+        return `
+      
+ <div class="main">
+      <a class="photo-link" href="${largeImageURL}">
+        <img class="image" src="${webformatURL}" alt="${tags}" loading="lazy"  width="300" height="300"/>
+      </a>
+   <div class="info">
     <p class="info-item">
-      <b>${likes}</b>
+      <b> Лайки:
+       ${likes}</b>
     </p>
     <p class="info-item">
-      <b>${views}</b>
+      <b> Просмотры: ${views}</b>
     </p>
     <p class="info-item">
-      <b>${comments}</b>
+      <b> Комментарии: ${comments}</b>
     </p>
     <p class="info-item">
-      <b>${downloads}</b>
+      <b> Загрузки: ${downloads}</b>
     </p>
-  </div>
-</div>`;
-    }
-  );
+   </div>
+ </div>
+`;
+      }
+    )
+    .join('');
+
   gallery.insertAdjacentHTML('beforeend', newGallery);
 }
 
