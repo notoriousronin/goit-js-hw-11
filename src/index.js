@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import axios from 'axios';
 
-const axios = require('axios').default;
+// const axios = require('axios').default;
 
 const form = document.querySelector('.search-form');
 const input = document.querySelector('.input');
