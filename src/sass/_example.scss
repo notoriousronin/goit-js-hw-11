@@ -1,12 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  color: #212121;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.list {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
 .is-hidden {
   display: none;
 }
 
 .input {
+  height: 40px;
+  padding: 10px;
+
+  font-size: 16px;
+
   outline: none;
-  background-color: whitesmoke;
-  border: 4px solid orangered;
-  padding-right: 30px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .form-block {
@@ -17,24 +68,37 @@
 }
 
 .search-form {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  position: sticky;
+  top: -1px;
+
+  margin: 0;
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: black;
 }
 
 .search {
-  background-color: greenyellow;
+  width: 100px;
+  height: 40px;
+
+  font-size: 16px;
+
   border: none;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-right: 7px;
-  padding-left: 7px;
-  display: inline-block;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  cursor: pointer;
+  transition: background-color 300ms linear, color 300ms linear;
 }
 
 .search:hover,
 .search:focus {
   cursor: pointer;
-  background-color: violet;
+  background-color: red;
   outline: 0;
   outline-offset: 0;
 }
@@ -42,10 +106,35 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-
-  justify-content: space-between;
+  justify-content: center;
+  margin-left: -30px;
+  margin-top: -25px;
+  margin-bottom: 30px;
 }
 
 .image:hover {
   transform: scale(1.13);
+}
+
+.load-more {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 12px;
+  min-width: 150px;
+
+  border: none;
+  border-radius: 6px;
+  transition: background-color 300ms linear, color 300ms linear;
+
+  cursor: pointer;
+}
+
+.image {
+  flex-basis: calc((100% - 120px) / 4);
+  margin-left: 15px;
+  margin-top: 30px;
+  max-width: 300px;
+
+  border: 10px solid transparent;
+  cursor: pointer;
 }
