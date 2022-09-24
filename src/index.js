@@ -1,7 +1,6 @@
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import axios from 'axios';
-import simpleLightbox from 'simplelightbox';
 
 const axios = require('axios').default;
 
