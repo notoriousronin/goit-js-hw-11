@@ -45,7 +45,7 @@ ol {
 }
 
 .is-hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .input {
@@ -117,16 +117,17 @@ ol {
 }
 
 .load-more {
-  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  background-color: violet;
+  border: 2px solid black;
+  border-radius: 10%;
   margin: 0 auto;
-  padding: 12px 12px;
-  min-width: 150px;
-
-  border: none;
-  border-radius: 6px;
-  transition: background-color 300ms linear, color 300ms linear;
-
+  margin-bottom: 15px;
+  display: block;
   cursor: pointer;
+  min-width: 150px;
 }
 
 .image {

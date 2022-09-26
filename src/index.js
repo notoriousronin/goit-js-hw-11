@@ -1,5 +1,6 @@
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 
 // const axios = require('axios').default;
@@ -37,7 +38,10 @@ async function subHandle(event) {
       if (response.data.hits.length > 0) {
         loadBtn.classList.remove('is-hidden');
         render(response.data.hits);
-        simpleLightbox = new SimpleLightbox('.gallery a').refresh();
+        simpleLightbox = new SimpleLightbox('.gallery a', {
+          captionDelay: 250,
+          captionsData: 'alt',
+        }).refresh();
         const totalHits = response.data.totalHits;
         Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
       }
@@ -93,7 +97,7 @@ function render(image) {
         <img class="image" src="${webformatURL}" alt="${tags}" loading="lazy"  width="300" height="300"/>
       </a>
    <div class="info">
-    <p class="info-item">
+    <p class="info-item"> 
       <b> Лайки:
        ${likes}</b>
     </p>
@@ -126,7 +130,7 @@ async function subLoad(event) {
       `?key=${MYAPI_KEY}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`
     );
     render(response.data.hits);
-    simpleLightbox = new SimpleLightbox('.gallery a').refresh();
+    const simpleLightbox = new SimpleLightbox('.gallery a').refresh();
     const maxValue = Math.floor(response.data.totalHits / perPage);
     if (maxValue < page) {
       loadBtn.classList.add('is-hidden');
