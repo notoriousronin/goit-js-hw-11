@@ -28,6 +28,7 @@ async function subHandle(event) {
 
   if (inputValue) {
     gallery.innerHTML = '';
+    page = 1;
 
     try {
       axios.defaults.baseURL = myUrl;
