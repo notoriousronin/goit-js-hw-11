@@ -19,6 +19,9 @@ let perPage = 40;
 form.addEventListener('submit', subHandle);
 loadBtn.addEventListener('click', subLoad);
 
+const getUrlApi = (MYAPI_KEY, inputValue, page, perPage) =>
+  `?key=${MYAPI_KEY}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`;
+
 async function subHandle(event) {
   event.preventDefault();
   const inputValue = input.value.trim();
@@ -29,7 +32,7 @@ async function subHandle(event) {
     try {
       axios.defaults.baseURL = myUrl;
       const response = await axios.get(
-        `?key=${MYAPI_KEY}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`
+        getUrlApi(MYAPI_KEY, inputValue, page, perPage)
       );
       if (response.data.hits.length === 0) {
         Notiflix.Report.warning('No images for your search');
@@ -38,7 +41,7 @@ async function subHandle(event) {
       if (response.data.hits.length > 0) {
         loadBtn.classList.remove('is-hidden');
         render(response.data.hits);
-        simpleLightbox = new SimpleLightbox('.gallery a', {
+        const simpleLightbox = new SimpleLightbox('.gallery a', {
           captionDelay: 250,
           captionsData: 'alt',
         }).refresh();
@@ -127,7 +130,7 @@ async function subLoad(event) {
   try {
     axios.defaults.baseURL = myUrl;
     const response = await axios.get(
-      `?key=${MYAPI_KEY}&q=${inputValue}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=${perPage}`
+      getUrlApi(MYAPI_KEY, inputValue, page, perPage)
     );
     render(response.data.hits);
     const simpleLightbox = new SimpleLightbox('.gallery a').refresh();
